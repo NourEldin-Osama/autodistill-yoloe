@@ -1,0 +1,50 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: check-added-large-files
+      - id: check-case-conflict
+      - id: check-toml
+      - id: check-yaml
+        args:
+          - --unsafe
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+
+  - repo: https://github.com/astral-sh/uv-pre-commit
+    rev: 0.6.12
+    hooks:
+      # Update the uv lockfile
+      - id: uv-lock
+        files: pyproject.toml
+
+  - repo: https://github.com/abravalheri/validate-pyproject
+    rev: v0.24.1
+    hooks:
+      # Validate the pyproject.toml file.
+      - id: validate-pyproject
+        files: ^pyproject.toml$
+
+  - repo: https://github.com/crate-ci/typos
+    rev: v1.31.1
+    hooks:
+      # Check for typos in the codebase.
+      - id: typos
+
+  - repo: https://github.com/macisamuele/language-formatters-pre-commit-hooks
+    rev: v2.14.0
+    hooks:
+      - id: pretty-format-toml
+        args: [--autofix, --no-sort, --indent, "4"]
+      - id: pretty-format-yaml
+        args: [--autofix, --offset, "2", --preserve-quotes]
+
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.11.4
+    hooks:
+      # Run the linter.
+      - id: ruff
+        args:
+          - --fix
+      # Run the formatter.
+      - id: ruff-format
