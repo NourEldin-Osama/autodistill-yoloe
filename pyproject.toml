@@ -1,12 +1,19 @@
 [project]
 name = "autodistill-yoloe"
-version = "0.1.0"
+version = "0.1.1"
 description = "use YOLOE to auto-label images for use in training fine-tuned object detection models"
 authors = [
-    {name = "NourEldin Osama"}
+    {name = "NourEldin Osama", email = "noureldin.osama.saad@gmail.com"}
 ]
 readme = "README.md"
 requires-python = ">=3.11"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13"
+]
 dependencies = [
     "autodistill",
     "supervision",
@@ -15,6 +22,10 @@ dependencies = [
     "torch",
     "roboflow"
 ]
+
+[project.urls]
+Homepage = "https://github.com/NourEldin-Osama/autodistill-yoloe"
+Repository = "https://github.com/NourEldin-Osama/autodistill-yoloe"
 
 [tool.uv.sources]
 torch = [
